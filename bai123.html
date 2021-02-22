@@ -28,13 +28,16 @@
         Khi click vào mỗi ảnh thì hiện ra thông tin của bức ảnh, click lại lần nữa thì mất.<br>
         Lưu ý: khuyến khích lưu link các ảnh trong một file JSON có sẵn (Thời gian làm bài: 60') *
     </p>
-    <a href="bai3/bai3.html" ><button> Bai 3</button></a>
+    <a href="bai3.html" ><button> Bai 3</button></a>
 </div>
 
     <style>
         *{
             margin: 0;
             padding: auto;
+        }
+        button{
+            margin: 5px 0;
         }
         .bai1, .bai2 ,.bai3{
             margin: 20px 10px;
@@ -47,24 +50,27 @@
 <script>
     function bai1() {
      let arr = [];      
+     let res = [];
      arr = prompt("Enter the Element, separated by ( space ): ");
      let arrNum = arr.split(" ");
-         
-    //  function TRY(num) {
-    //     let a = [];
-    //     for (let i = 0; i <= Math.sqrt(num); i++){
-    //           a.push(i);
-    //     }
-        
-    //     do{
-    //        num = Math.floor(num/a);
-    //     }while(true);  
-    //  }
 
-    //  let res = [];
-    //  for(let item of arrNum){ 
-    //      res.push(item);
-    //  }
+     let size = arrNum.length;   
+     for (let i = 0; i < size; i++) {
+        for (let j = 2; j <= Math.sqrt(arrNum[i]); j++) {
+            let b = arrNum[i];
+            while (b!=1) {
+                if (b%j == 0) {
+                    b/=j;
+                } else {
+                    break;
+                }
+            }
+            if (b==1) {
+                res.push(arrNum[i]);
+                break;
+            }
+        }
+    }
      document.getElementById("arrNum").innerHTML = arrNum;
      document.getElementById("result1").innerHTML = res;
     }
