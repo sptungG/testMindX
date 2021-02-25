@@ -8,7 +8,7 @@ function merge2String( a, b){
     if (a.length < b.length)
         for(let i=a.length; i<b.length; i++) res += b[i];
     if (a.length > b.length)
-        for(let i=b.length(); i<a.length(); i++) res += a[i];
+        for(let i=b.length; i<a.length; i++) res += a[i];
     return res;
 }
 function bai2() {
