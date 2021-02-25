@@ -1,51 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>BAI 3</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bai3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel='stylesheet' type='text/css' media='screen' href='bai3/bai3.css'>
+    <title>Guess</title>
 </head>
-<body>
-    <div id="category-select" class="category-select">
-        <button class="btn active" value="all" > Show all</button>
-        <button class="btn" value="viet" > VietNamese</button>
-        <button class="btn" value="foreign" > Foreign</button>
-        <button class="btn" value="asia" > Asia</button>
-        <button class="btn" > <a href="bai123.html" > <i class="fa fa-chevron-circle-right"></i> Back </a></button>
-      </div>
+<body onload="createRandomNumber()">
+    <div class="header">
+        <b>Random Guess</b>
+    </div>
 
-    <div id="gallery" class="gallery">
-       <!--  -->
-    </div>
-    <div class="form-popup" id="myBlog">
-        <div class="blocker" onclick="closeForm()"></div>
-        <div class="form-container" id="form"> 
-              <div class="main-more-detail"> 
-                <div class="left-form more-detail-img-big"><img src="" alt="" id="more-detail-img-big"></div>
-                <div class="right-form">  
-                <div class="more-detail-title">Lorem ipsum dolor</div>
-                  
-                  <div class="more-detail-category">
-                    <span><i class="fa fa-map-o" aria-hidden="true"></i>a</span>|
-                  </div>
-                  <hr>
-                  <div class="more-detail-desc"> 
-                             <p> 
-                              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-                              Aenean commodo ligula eget dolor. Aenean massa. Cum sociis 
-                              natoque penatibus et magnis dis parturient montes, nascetur 
-                              ridiculus mus. Donec quam felis, ultricies nec, pellentesque 
-                              eu, pretium quis, sem. Nulla consequat massa quis enim.
-                             </p>
-                  </div>
-                </div>
-              </div>    
+    <section >
+        <div class="contentHeader">
+            <div class="contentHeaderText">
+                Guess a random number between (1-10)
+            </div>
         </div>
-    </div>
-    <script src="bai3/recipes.js"></script>
-    <script src='bai3/bai3.js'></script>
+        <div class="searchPlace">
+                <input type="number" class="input" placeholder="Enter number" id="inputValue" autofocus>
+                <span><button type="button" class="btn" onclick="checkNumber()">Check</button></span>
+        </div>
+        <div class="comment">
+            <div class="commentText" id="status">Let's take a break, play a Game.</div>
+        </div>
+        <button class="btn" id="btn"> <a href="bai123.html" > <i class="fa fa-chevron-circle-right"></i> Back </a></button>
+    </section>
+
+    <script src="bai3.js"></script>
 </body>
 </html>
