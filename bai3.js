@@ -21,9 +21,10 @@ function checkNumber(){
             if(randomNumber == inputValue){
                 document.getElementById('status').innerHTML = 'Hurrahh!! You found me.';
                 document.getElementById('btn').style.backgroundColor = "green";
+                // after 3s -> Reset
                 setTimeout(function(){
                     location.reload()
-                },3000)
+                },3000);
             } else if(Math.abs(randomNumber - inputValue) >= 5) {
                 document.getElementById('status').innerHTML = 'You are far away.';
                 document.getElementById('btn').style.backgroundColor = "tomato";
