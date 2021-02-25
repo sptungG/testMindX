@@ -17,7 +17,7 @@ function checkNumber(){
     console.log(inputValue)
     if(typeof(inputValue) != String){
         if((inputValue > -1) && (inputValue < 11) ){
-            document.querySelector('.btn').style.color = "white";
+            document.getElementById('btn').style.color = "white";
             if(randomNumber == inputValue){
                 document.getElementById('status').innerHTML = 'Hurrahh!! You found me.';
                 document.getElementById('btn').style.backgroundColor = "green";
