@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>BAI 3</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' type='text/css' media='screen' href='bai3.css'>
+</head>
+<body>
+    <div id="category-select">
+        <button class="btn active" value="all" onclick="filterSelection('all')"> Show all</button>
+        <button class="btn" value="viet" onclick="filterSelection('viet')"> VietNamese</button>
+        <button class="btn" value="asia" onclick="filterSelection('foreign')"> Foreign</button>
+        <button class="btn" value="asia" onclick="filterSelection('asia')"> Asia</button>
+      </div>
+
+    <div id="gallery" class="gallery">
+       <!--  -->
+    </div>
+    <div class="form-popup" id="myBlog">
+        <div class="blocker" onclick="closeForm()"></div>
+        <div class="form-container" id="form"> 
+              <div class="main-more-detail"> 
+                <div class="left-form more-detail-img-big"><img src="https://cdn.cet.edu.vn/wp-content/uploads/2018/03/canh-ga-chien-nuoc-mam.jpg" alt="" id="more-detail-img-big"></div>
+                <div class="right-form">  
+                <div class="more-detail-title">Lorem ipsum dolor</div>
+                  
+                  <div class="more-detail-category">
+                    <span><i class="fa fa-map-o" aria-hidden="true"></i>. Món Á</span>|
+                  </div>
+                  <hr>
+                  <div class="more-detail-desc"> 
+                             <p> 
+                              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+                              Aenean commodo ligula eget dolor. Aenean massa. Cum sociis 
+                              natoque penatibus et magnis dis parturient montes, nascetur 
+                              ridiculus mus. Donec quam felis, ultricies nec, pellentesque 
+                              eu, pretium quis, sem. Nulla consequat massa quis enim.
+                             </p>
+                  </div>
+                </div>
+              </div>    
+        </div>
+    </div>
+    <script src="recipes.js"></script>
+    <script src='bai3.js'></script>
+</body>
+</html>

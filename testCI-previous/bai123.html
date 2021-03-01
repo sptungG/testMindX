@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>BAI1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+<div class="bai1">
+    <p> Bai 1: Viết công thức in ra danh sách các số là kết quả của việc lũy thừa một số n lần.<br>
+        Ví dụ có một danh sách nhập vào là arr = [16,32,72,96] thì dãy được in ra là arr = [16, 32] vì 16 = 4 mũ 2 và 32 = 2 mũ 5 (Thời gian làm bài: 15')
+    </p>
+    <button onclick="bai1()"> Bai 1</button>
+    <div>Your array: <p id="arrNum" class="arrNum"></p></div>  
+    <div>=>> Result: <p id="result1" class="result1"></p></div>  
+</div>
+<div class="bai2">
+    <p>Bai 2: Viết hàm tính tổng của 2 đối số, biết rằng nếu chỉ nhập vào 1 đối số thì trả về một hàm khác chứa đối số còn lại.<br>
+         Ví dụ add(2, 3) return 5, add(2)(3) return 5, add("2", "3") return undefined
+    </p>
+    <button onclick="bai2()"> Bai 2</button>
+    <div><p id="result2" class="result2"></p> </div>   
+</div>
+<div class="bai3">
+    <p>
+        Bai 3: Xây dựng một Photo Gallery show ảnh theo từng chủ đề khác nhau, biết rằng trên màn hình laptop mỗi hàng chứa 3 ảnh cách đều nhau và cách đều với hai lề trái và phải.<br>
+        Khi click vào mỗi ảnh thì hiện ra thông tin của bức ảnh, click lại lần nữa thì mất.<br>
+        Lưu ý: khuyến khích lưu link các ảnh trong một file JSON có sẵn (Thời gian làm bài: 60') *
+    </p>
+    <a href="bai3/bai3.html" ><button> Bai 3</button></a>
+</div>
+
+    <style>
+        *{
+            margin: 0;
+            padding: auto;
+        }
+        .bai1, .bai2 ,.bai3{
+            margin: 20px 10px;
+        }
+        .result1, .result2{
+            font-size: 40px;
+        }
+    </style>
+
+<script>
+    function bai1() {
+     let arr = [];      
+     arr = prompt("Enter the Element, separated by ( space ): ");
+     let arrNum = arr.split(" ");
+         
+    //  function TRY(num) {
+    //     let a = [];
+    //     for (let i = 0; i <= Math.sqrt(num); i++){
+    //           a.push(i);
+    //     }
+        
+    //     do{
+    //        num = Math.floor(num/a);
+    //     }while(true);  
+    //  }
+
+    //  let res = [];
+    //  for(let item of arrNum){ 
+    //      res.push(item);
+    //  }
+     document.getElementById("arrNum").innerHTML = arrNum;
+     document.getElementById("result1").innerHTML = res;
+    }
+
+    function bai2() {   
+     let a = Number(prompt("Enter the 1st number: "));
+     let b = Number(prompt("Enter the 2nd number: "));
+     
+     function add(num1, num2) {
+         return num1 + num2;
+     }
+    document.getElementById("result2").innerHTML = add(a,b);
+    }
+
+    
+</script>
+</body>
+</html>
