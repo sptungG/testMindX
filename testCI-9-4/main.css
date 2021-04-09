@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: auto;
+    box-sizing: border-box;
+}
+button{
+    margin: 5px 0;
+    padding: 5px 10px;
+}
+.bai1, .bai2 ,.bai3{
+    margin: 20px 10px;
+}
+.result1, .result2{
+    font-size: 40px;
+}
