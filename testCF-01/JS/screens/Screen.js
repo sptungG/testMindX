@@ -32,28 +32,6 @@ export default class Screen extends BaseComponent {
 
   // ==========================  ==========================
   render() {
-    //     <div class="input-wrapper">
-    //     <div>Link shortener</div>
-    //     <div>
-    //         <div>
-    //             <div class="input">
-    //             <div>Enter a link:</div>
-    //             <input type="text" placeholder="Example.com">
-    //             </div>
-    //             <div class="short-domain">
-    //                 <div>Short domain:</div>
-    //                 <div class="short-link">shrtco.de</div>
-    //                 <div class="short-link">9qr.de</div>
-    //                 <div class="short-link">shiny.link</div>
-    //             </div>
-    //         </div>
-    //         <button><i class="fas fa-arrow-right"></i></button>
-    //     </div>
-    // </div>
-    // <div class="result">
-    // <div>Result:</div>
-    // <div class="answer"></div>
-    // </div>
     let $container = document.querySelector("#main");
 
     let $wrapper = document.createElement("div");
