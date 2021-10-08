@@ -1,20 +1,15 @@
-// Viết hàm chuyển đổi các số nguyên về số La mã. Ví dụ nhập vào 6 => output là VI
+// Nhập vào một mảng các số nguyên, tìm cặp hai số liền kề có tích lớn nhất và trả về kết quả của phép nhân 2 số đó.
 function bai1() {
-  let num = Number(prompt("Nhập số của bạn: ").trim());
-  while (isNaN(num)) {
-    num = Number(prompt("Bạn nhập sai rồi. Hãy nhập lại số: ").trim());
-  }
-  document.getElementById("num").innerHTML = `${("0" + num).slice(-2)}`;
-  document.getElementById("result1").innerHTML = romanize(num);
+  let arrNum = prompt("Nhập lần lượt các số trong mảng, cách nhau bỏi phím cách 'space'\n ví dụ như 2 3 -5 -2 4: ").trim();
+  let arr = arrNum.split(" ");
+  document.getElementById("num1").innerHTML = `${arr}`;
+  document.getElementById("result1").innerHTML = adjacentElementsProduct(arr);
 }
-function romanize(num) {
-  let lookup = { M: 1000, CM: 900, D: 500, CD: 400, C: 100, XC: 90, L: 50, XL: 40, X: 10, IX: 9, V: 5, IV: 4, I: 1 };
-  let roman = "";
-  for (let i in lookup) {
-    while (num >= lookup[i]) {
-      roman += i;
-      num -= lookup[i];
-    }
+function adjacentElementsProduct(inputArray) {
+  let max = -Infinity;
+  for (let i = 1; i < inputArray.length; i++) {
+    max = Math.max(inputArray[i] * inputArray[i - 1], max);
   }
-  return roman;
+  console.log(max);
+  return max;
 }
