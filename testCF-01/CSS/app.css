@@ -84,4 +84,10 @@ button {
 }
 label{
   margin-right: 5px;
+  font-weight: 700;
+}
+.form-error{
+  margin-top: 5px !important;
+  margin-left: 35px;
+  color: red;
 }

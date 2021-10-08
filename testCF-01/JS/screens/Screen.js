@@ -44,7 +44,7 @@ export default class Screen extends BaseComponent {
     let _link = new InputWrapper({
       id: "link",
       label: "Link",
-      placeholder: "Example.com...",
+      placeholder: "Enter the link to get shorter, Example.com...",
       type: "text",
       error: this.state.messageError.link,
       value: this.state.data.link,
@@ -61,7 +61,7 @@ export default class Screen extends BaseComponent {
     $title1.classList.add("title");
     // <div class="short-link">shrtco.de</div>
     let $option1 = document.createElement("div");
-    $option1.classList.add("short-link");
+    $option1.classList.add("short-link","focus");
     $option1.value = "shrtco.de";
     $option1.innerHTML = "shrtco.de";
     let $option2 = document.createElement("div");
@@ -86,6 +86,7 @@ export default class Screen extends BaseComponent {
 
     $wrapper01.append($button);
     $wrapper.append($title, $wrapper01, $wrapper02);
+    $container.innerHTML = "";
     $container.append($wrapper, $result);
     return $container;
   }

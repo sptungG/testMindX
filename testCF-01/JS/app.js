@@ -10,17 +10,17 @@ window.addEventListener("load", (e) => {
   let $button = document.querySelector("button");
   let $input = document.querySelector("input");
   let $answer = document.querySelector(".answer");
-  $shortLink[0].classList.add("focus");
 
-  $shortLink.forEach((value) => {
-    value.onclick = () => {
-      $shortLink.forEach((i) => {
-        i.classList.remove("focus");
+  $shortLink.forEach((element) => {
+    element.onclick = () => {
+      $shortLink.forEach((e) => {
+        e.classList.remove("focus");
       });
-      value.classList.add("focus");
+      element.classList.add("focus");
     };
   });
-  $button.onclick = () => {
+  $button.onclick = (e) => {
+    e.preventDefault();
     let http = $input.value;
     if (http.indexOf("http://") == 0 || http.indexOf("https://") == 0) {
       http = http.split("//")[1];
