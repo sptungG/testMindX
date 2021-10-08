@@ -1,5 +1,6 @@
 import { getDataFromDoc, getDataFromDocs } from "./utils.js";
 import { auth, db } from "../firebase.js";
+import Collection from "../screens/Collection.js";
 
 export async function register(name, email, password) {
   try {
