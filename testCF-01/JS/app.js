@@ -19,8 +19,7 @@ window.addEventListener("load", (e) => {
       element.classList.add("focus");
     };
   });
-  $button.onclick = (e) => {
-    e.preventDefault();
+  $button.onclick = () => {
     let http = $input.value;
     if (http.indexOf("http://") == 0 || http.indexOf("https://") == 0) {
       http = http.split("//")[1];
