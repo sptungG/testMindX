@@ -1,0 +1,13 @@
+// Git bash
+//  sass SCSS/app.scss CSS/app.css --watch
+
+@import "variables";
+@import "reset";
+@import "mixin";
+@import "base";
+@import "typo";
+@import "form";
+@import "header";
+@import "collection";
+@import "show";
+@import "detail";
