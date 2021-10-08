@@ -11,12 +11,12 @@ window.addEventListener("load", (e) => {
   let $input = document.querySelector("input");
   let $answer = document.querySelector(".answer");
 
-  $shortLink.forEach((element) => {
-    element.onclick = () => {
-      $shortLink.forEach((e) => {
-        e.classList.remove("focus");
+  $shortLink.forEach((value) => {
+    value.onclick = () => {
+      $shortLink.forEach((i) => {
+        i.classList.remove("focus");
       });
-      element.classList.add("focus");
+      value.classList.add("focus");
     };
   });
   $button.onclick = () => {
