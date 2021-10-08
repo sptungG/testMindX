@@ -33,7 +33,6 @@ export default class Screen extends BaseComponent {
   // ==========================  ==========================
   render() {
     let $container = document.querySelector("#main");
-    $container.innerHTML = "";
 
     let $wrapper = document.createElement("div");
     $wrapper.classList.add("input-wrapper");
@@ -50,7 +49,7 @@ export default class Screen extends BaseComponent {
       error: this.state.messageError.link,
       value: this.state.data.link,
       autocomplete: "on",
-      onblur: (event) => {
+      onchange: (event) => {
         this.handleInputChange("link", event.target.value);
       },
     });
@@ -75,6 +74,7 @@ export default class Screen extends BaseComponent {
     $wrapper01.append($button);
     $wrapper.append($title, $wrapper01, $wrapper02);
 
+    $container.innerHTML = "";
     $container.append($wrapper, $result);
     this.createListener();
     return $container;
@@ -84,6 +84,7 @@ export default class Screen extends BaseComponent {
     let $button = document.querySelector("button");
     let $input = document.querySelector("input");
     let $answer = document.querySelector(".answer");
+    $shortLink[0].classList.add("focus");
 
     $shortLink.forEach((element) => {
       element.onclick = () => {
