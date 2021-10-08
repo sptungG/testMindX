@@ -49,7 +49,7 @@ export default class Screen extends BaseComponent {
       error: this.state.messageError.link,
       value: this.state.data.link,
       autocomplete: "on",
-      onchange: (event) => {
+      onblur: (event) => {
         this.handleInputChange("link", event.target.value);
       },
     });
