@@ -7,8 +7,8 @@ function bai1() {
 }
 function adjacentElementsProduct(inputArray) {
   let max = -1000000;
-  for (let i = 1; i < inputArray.length; i++) {
-    max = Math.max(inputArray[i] * inputArray[i - 1], max);
+  for (let index = 1; index < inputArray.length; index++) {
+    max = Math.max(inputArray[index] * inputArray[index - 1], max);
   }
   console.log(max);
   return max;

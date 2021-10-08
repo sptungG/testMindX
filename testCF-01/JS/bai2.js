@@ -7,12 +7,12 @@ function bai2() {
   document.getElementById("num2").innerHTML = `${arrNum}`;
   document.getElementById("result2").innerHTML = alternatingSums(arr).join(",");
 }
-function alternatingSums(a) {
+function alternatingSums(arr) {
   let team1 = 0;
   let team2 = 0;
-  for (let i in a) {
-      if (i % 2 == 0) team1 += parseInt(a[i]);
-      else team2 += parseInt(a[i]);
+  for (let index in arr) {
+    if (index % 2 == 0) team1 += parseInt(arr[index]);
+    else team2 += parseInt(arr[index]);
   }
   return [team1, team2];
 }
