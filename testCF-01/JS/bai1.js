@@ -6,7 +6,7 @@ function bai1() {
   document.getElementById("result1").innerHTML = adjacentElementsProduct(arr);
 }
 function adjacentElementsProduct(inputArray) {
-  let max = -Infinity;
+  let max = -1000000;
   for (let i = 1; i < inputArray.length; i++) {
     max = Math.max(inputArray[i] * inputArray[i - 1], max);
   }
