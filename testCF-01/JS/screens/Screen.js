@@ -56,7 +56,7 @@ export default class Screen extends BaseComponent {
     appendTo($wrapper01, _link);
     let $wrapper02 = document.createElement("div");
     $wrapper02.classList.add("short-domain");
-    let $title1 = document.createElement("h1");
+    let $title1 = document.createElement("div");
     $title1.innerHTML = "Short domain";
     $title1.classList.add("title");
     // <div class="short-link">shrtco.de</div>
