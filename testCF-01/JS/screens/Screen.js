@@ -33,6 +33,7 @@ export default class Screen extends BaseComponent {
   // ==========================  ==========================
   render() {
     let $container = document.querySelector("#main");
+    $container.innerHTML = "";
 
     let $wrapper = document.createElement("div");
     $wrapper.classList.add("input-wrapper");
@@ -56,38 +57,73 @@ export default class Screen extends BaseComponent {
     appendTo($wrapper01, _link);
     let $wrapper02 = document.createElement("div");
     $wrapper02.classList.add("short-domain");
-    let $title1 = document.createElement("div");
-    $title1.innerHTML = "Short domain";
-    $title1.classList.add("title");
-    // <div class="short-link">shrtco.de</div>
-    let $option1 = document.createElement("div");
-    $option1.classList.add("short-link","focus");
-    $option1.value = "shrtco.de";
-    $option1.innerHTML = "shrtco.de";
-    let $option2 = document.createElement("div");
-    $option2.classList.add("short-link");
-    $option2.value = "9qr.de";
-    $option2.innerHTML = "9qr.de";
-    let $option3 = document.createElement("div");
-    $option3.classList.add("short-link");
-    $option3.value = "shiny.link";
-    $option3.innerHTML = "shiny.link";
-    $wrapper02.append($title1, $option1, $option2, $option3);
+    $wrapper02.innerHTML = `
+    <div class="title">Short domain:</div>
+    <div class="short-link">shrtco.de</div>
+    <div class="short-link">9qr.de</div>
+    <div class="short-link">shiny.link</div>`
 
     let $button = document.createElement("button");
     $button.classList.add("btn");
     $button.innerHTML = `<i class="fas fa-arrow-right"></i>`;
     let $result = document.createElement("div");
     $result.classList.add("result");
-    $result.innerHTML = `<div>Result:</div>`;
-    let $answer = document.createElement("div");
-    $answer.classList.add("answer");
-    $result.append($answer);
+    $result.innerHTML = `
+    <div class="title">Result:</div>
+    <div class="answer"></div>`;
 
     $wrapper01.append($button);
     $wrapper.append($title, $wrapper01, $wrapper02);
-    $container.innerHTML = "";
+
     $container.append($wrapper, $result);
+    this.createListener();
     return $container;
+  }
+  createListener() {
+    let $shortLink = document.querySelectorAll(".short-link");
+    let $button = document.querySelector("button");
+    let $input = document.querySelector("input");
+    let $answer = document.querySelector(".answer");
+
+    $shortLink.forEach((element) => {
+      element.onclick = () => {
+        $shortLink.forEach((e) => {
+          e.classList.remove("focus");
+        });
+        element.classList.add("focus");
+      };
+    });
+    $button.onclick = () => {
+      let http = $input.value;
+      console.log(http);
+      if (http.indexOf("http://") == 0 || http.indexOf("https://") == 0) {
+        http = http.split("//")[1];
+        getShortLink(http);
+      } else if (http.indexOf("shrtco.de") == 0 || http.indexOf("9qr.de") == 0 || http.indexOf("shiny.link") == 0) {
+        http = http.split("/");
+        let tmp = "";
+        for (let i = 1; i < http.length; i++) {
+          tmp = tmp + http[i];
+          if (i != http.length - 1) {
+            tmp += "/";
+          }
+        }
+        getLongLink(tmp);
+      }
+    };
+    async function getShortLink(http) {
+      await axios.get("https://api.shrtco.de/v2/shorten?url=" + http).then((response) => {
+        console.log(response);
+        $answer.innerHTML = response.data.result["short_link"];
+        $input.value = "";
+      });
+    }
+    async function getLongLink(http) {
+      await axios.get("https://api.shrtco.de/v2/info?code=" + http).then((response) => {
+        console.log(response);
+        $answer.innerHTML = response.data.result["url"];
+        $input.value = "";
+      });
+    }
   }
 }
