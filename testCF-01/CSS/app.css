@@ -1,11 +1,21 @@
+#main{
+  max-width: 1000px;
+  padding: 0 30px;
+  margin:  0 auto;
+}
 .input-wrapper {
+  /* width: 500px; */
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  width: 500px;
+  align-items: center;
   border-radius: 10px;
   padding: 24px;
   border: 1px solid black;
-  margin: auto;
+}
+.input-container{
+  display: flex;
+  justify-content: center;
 }
 .input-wrapper > div:nth-child(1) {
   font-size: 40px;
@@ -67,7 +77,6 @@ button {
 }
 .result{
   text-align: center;
-  width: 300px;
   height: 100px;
   margin: auto;
   margin-top: 20px;

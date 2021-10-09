@@ -60,7 +60,7 @@ export default class Screen extends BaseComponent {
     <div class="title">Short domain:</div>
     <div class="short-link">shrtco.de</div>
     <div class="short-link">9qr.de</div>
-    <div class="short-link">shiny.link</div>`
+    <div class="short-link">shiny.link</div>`;
 
     let $button = document.createElement("button");
     $button.classList.add("btn");
@@ -73,33 +73,29 @@ export default class Screen extends BaseComponent {
 
     $wrapper01.append($button);
     $wrapper.append($title, $wrapper01, $wrapper02);
+    let arr = [...$wrapper02.children];
+    arr.shift();
+    // console.log(arr);
+    arr[0].classList.add("focus");
 
-    $container.innerHTML = "";
-    $container.append($wrapper, $result);
-    this.createListener();
-    return $container;
-  }
-  createListener() {
-    let $shortLink = document.querySelectorAll(".short-link");
-    let $button = document.querySelector("button");
-    let $input = document.querySelector("input");
-    let $answer = document.querySelector(".answer");
-    $shortLink[0].classList.add("focus");
-
-    $shortLink.forEach((element) => {
+    arr.forEach((element) => {
       element.onclick = () => {
-        $shortLink.forEach((e) => {
+        arr.forEach((e) => {
           e.classList.remove("focus");
         });
         element.classList.add("focus");
       };
     });
-    $button.onclick = () => {
-      let http = $input.value;
+    $button.addEventListener("click", async () => {
+      let http = this.state.data.link;
       console.log(http);
       if (http.indexOf("http://") == 0 || http.indexOf("https://") == 0) {
         http = http.split("//")[1];
-        getShortLink(http);
+        // getShortLink
+        await axios.get("https://api.shrtco.de/v2/shorten?url=" + http).then((response) => {
+          console.log(response);
+          $result.innerHTML = `<div class="title">Result:</div><div class="answer">${response.data.result["short_link"]}</div>`;
+        });
       } else if (http.indexOf("shrtco.de") == 0 || http.indexOf("9qr.de") == 0 || http.indexOf("shiny.link") == 0) {
         http = http.split("/");
         let tmp = "";
@@ -109,22 +105,15 @@ export default class Screen extends BaseComponent {
             tmp += "/";
           }
         }
-        getLongLink(tmp);
+        // getLongLink
+        await axios.get("https://api.shrtco.de/v2/info?code=" + tmp).then((response) => {
+          console.log(response);
+          $result.innerHTML = `<div class="title">Result:</div><div class="answer">${response.data.result["url"]}</div>`;
+        });
       }
-    };
-    async function getShortLink(http) {
-      await axios.get("https://api.shrtco.de/v2/shorten?url=" + http).then((response) => {
-        console.log(response);
-        $answer.innerHTML = response.data.result["short_link"];
-        $input.value = "";
-      });
-    }
-    async function getLongLink(http) {
-      await axios.get("https://api.shrtco.de/v2/info?code=" + http).then((response) => {
-        console.log(response);
-        $answer.innerHTML = response.data.result["url"];
-        $input.value = "";
-      });
-    }
+    });
+    $container.innerHTML = "";
+    $container.append($wrapper, $result);
+    return $container;
   }
 }
